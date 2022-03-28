@@ -1,0 +1,45 @@
+Switch Database  (Elegir base de datos)
+show dbs  //mostramos las bases de datos 
+use db    //elegimos una base de datos
+db        //verificamos que estamos en una base de datos 
+db.dropDatabase()   // Eliminar una base de datos si no seleccion una base de datos borrara test por defecto 
+
+
+
+Populate a Collection (Rellenar una colección)
+db.collection.insert({campo:"valor"})   // insertar un documento en una coleccion sino especificamos el _id este se creara automaticamente
+
+db.collection.insert({_id:ObjectId("123436643435234354356432"),campo:"valor"}) // insertamos un documento con un _id especifico para este caso un Integer
+
+db.collection.insert(
+   [
+     { item: "pen", qty: 20 },
+     { item: "eraser", qty: 25 }
+   ]
+) // insertamos varios documentos a la ves encapsulando en un arreglo de manera ordenada
+
+db.collection.insert(
+   [
+     { _id: 20, item: "lamp", qty: 50, type: "desk" },
+     { _id: 21, item: "lamp", qty: 20, type: "floor" },
+     { _id: 22, item: "bulk", qty: 100 }
+   ],
+   { ordered: false }
+) // insertamos varios documentos pero de manera desordenada
+
+
+
+db.collection.insertMany(
+   [
+     { item: "pen", qty: 20 },
+     { item: "eraser", qty: 25 }
+   ]
+) // insertamos varios documentos a la ves encapsulando en un arreglo Solo admite varios documentos
+
+
+db.collection.save({campo:'341'}) // método está en desuso aunque igual puede seguir usando para su remplazo se puede usar insertOne o replaceOne
+
+db.collection.insertOne({"sd":true}) // insertamos un solo documento y nos devuelve un valor true si la accion fue correcta o false en caso contrario { "acknowledged" : true, "insertedId" : 10 }
+
+Aunque parecen que hacen lo mismo una diferencia esta en la forma que nos responde Mongo esto puede ser muy util para verificar estados y maximizar RENDIMIENTO 
+
