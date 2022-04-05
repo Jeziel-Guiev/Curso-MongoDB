@@ -1,0 +1,25 @@
+db.getCollection('usuarios').insert({
+    tarea:'matematicas',
+    tarea1:'fisica',
+    notas:[2,42,4,34,2]
+    })
+
+
+db.getCollection('usuarios').find({campo:{$in:['valor','casa']}})
+
+db.collection.find({}) // busca todos los documentos de una coleccion
+
+db.collection.find({data:’compare’}) //usa el operador AND busca todos los documentos de una coleccion que cumplan la condicion
+
+db.collection.find({data:{$in:[“A”,”B”]}}) // busca todos los documentos que tengas en campo data y su valor sea A o B
+
+db.collection.find({notas:{$in:[2,54,45]}})  //busca todos los documentos que tengan el campo notas(array) donde exista un elemento 2 o 54 o 45
+
+db.collection.find({$or:[{tarea:'matematicas'},{tarea1:'fisica'}]}) // busca todos los elementos que tengan el campo tarea o tarea1 y que tenga el valor matematicas o fisica
+
+db.collection.find({'_id':"62489fc316211b827fb7ab02"}) mal
+db.collection.find({'_id':ObjectId("62489fc316211b827fb7ab02")})bien 
+
+
+
+
